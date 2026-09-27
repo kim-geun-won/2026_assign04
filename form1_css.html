@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>form1_css - 김근원 (22100072)</title>
+  <style>
+    body {
+      font-family: "Malgun Gothic", sans-serif;
+      background-color: #f4f6f8;
+      color: #333;
+      margin: 0;
+      padding: 30px 15px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 5px;
+    }
+
+    .source {
+      text-align: center;
+      color: #777;
+      font-size: 14px;
+      margin-bottom: 25px;
+    }
+
+    /* Form 영역 */
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 25px 30px;
+      background-color: #ffffff;
+      border: 1px solid #dde1e5;
+      border-radius: 10px;
+    }
+
+    fieldset {
+      border: 1px solid #cfd8dc;
+      border-radius: 8px;
+      padding: 15px 20px;
+      margin-bottom: 20px;
+    }
+
+    legend {
+      padding: 0 8px;
+      font-weight: bold;
+      color: #1a73e8;
+    }
+
+    /* Label */
+    label {
+      display: block;
+      margin: 12px 0 5px;
+      font-size: 14px;
+      font-weight: bold;
+      color: #444;
+    }
+
+    /* Input, Select, Textarea 공통 */
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="date"],
+    select,
+    textarea {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 9px 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background-color: #fafafa;
+      font-size: 14px;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    input[type="color"] {
+      width: 60px;
+      height: 35px;
+      padding: 2px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background-color: #fff;
+    }
+
+    /* Focus 상태 */
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #1a73e8;
+      background-color: #ffffff;
+    }
+
+    /* Hover 상태 */
+    input[type="text"]:hover,
+    input[type="email"]:hover,
+    input[type="password"]:hover,
+    input[type="date"]:hover,
+    select:hover,
+    textarea:hover {
+      border-color: #888;
+    }
+
+    /* checkbox, radio 줄 */
+    .check-row {
+      display: flex;
+      align-items: center;
+      margin: 8px 0;
+    }
+
+    .check-row label {
+      display: inline;
+      margin: 0 0 0 6px;
+      font-weight: normal;
+    }
+
+    /* Button */
+    button {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 6px;
+      background-color: #1a73e8;
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #1558b0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>주문 결제 Form (Clone: Bootstrap Checkout Example)</h1>
+  <p class="source">원본 URL: https://getbootstrap.com/docs/5.2/examples/checkout/</p>
+
+  <form id="checkoutForm">
+
+    <fieldset>
+      <legend>배송 정보</legend>
+
+      <label for="firstName">이름</label>
+      <input type="text" id="firstName" name="firstName" required>
+
+      <label for="lastName">성</label>
+      <input type="text" id="lastName" name="lastName" required>
+
+      <label for="username">사용자명</label>
+      <input type="text" id="username" name="username">
+
+      <label for="email">이메일</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="address">주소</label>
+      <input type="text" id="address" name="address">
+
+      <label for="address2">상세 주소 (선택)</label>
+      <input type="text" id="address2" name="address2">
+
+      <label for="country">국가</label>
+      <input type="text" id="country" name="country" list="countryList">
+      <datalist id="countryList">
+        <option value="대한민국">
+        <option value="미국">
+        <option value="일본">
+        <option value="중국">
+        <option value="독일">
+      </datalist>
+
+      <label for="region">지역</label>
+      <select id="region" name="region">
+        <optgroup label="수도권">
+          <option value="seoul">서울</option>
+          <option value="incheon">인천</option>
+          <option value="gyeonggi">경기</option>
+        </optgroup>
+        <optgroup label="영남권">
+          <option value="busan">부산</option>
+          <option value="daegu">대구</option>
+        </optgroup>
+        <optgroup label="기타">
+          <option value="etc">기타 지역</option>
+        </optgroup>
+      </select>
+
+      <label for="zip">우편번호</label>
+      <input type="text" id="zip" name="zip">
+
+      <label for="deliveryDate">희망 배송일</label>
+      <input type="date" id="deliveryDate" name="deliveryDate">
+
+      <label for="deliveryNote">배송 요청사항</label>
+      <textarea id="deliveryNote" name="deliveryNote" rows="4"></textarea>
+
+      <label for="giftWrapColor">선물 포장 색상 (선택)</label>
+      <input type="color" id="giftWrapColor" name="giftWrapColor" value="#ff0000">
+
+      <div class="check-row">
+        <input type="checkbox" id="sameAddress" name="sameAddress">
+        <label for="sameAddress">청구지 주소가 배송지 주소와 동일합니다</label>
+      </div>
+
+      <div class="check-row">
+        <input type="checkbox" id="saveInfo" name="saveInfo">
+        <label for="saveInfo">다음에 사용할 정보 저장</label>
+      </div>
+
+    </fieldset>
+
+    <fieldset>
+      <legend>결제 방법</legend>
+
+      <div class="check-row">
+        <input type="radio" id="creditCard" name="paymentMethod" value="credit" checked>
+        <label for="creditCard">신용카드</label>
+      </div>
+
+      <div class="check-row">
+        <input type="radio" id="debitCard" name="paymentMethod" value="debit">
+        <label for="debitCard">체크카드</label>
+      </div>
+
+      <div class="check-row">
+        <input type="radio" id="paypal" name="paymentMethod" value="paypal">
+        <label for="paypal">PayPal</label>
+      </div>
+
+      <label for="ccName">카드 소유자명</label>
+      <input type="text" id="ccName" name="ccName">
+
+      <label for="ccNumber">카드 번호</label>
+      <input type="text" id="ccNumber" name="ccNumber">
+
+      <label for="ccExpiration">유효기간</label>
+      <input type="text" id="ccExpiration" name="ccExpiration" placeholder="MM/YY">
+
+      <label for="ccCvv">CVV</label>
+      <input type="text" id="ccCvv" name="ccCvv">
+
+      <label for="ccPassword">카드 비밀번호 (앞 2자리)</label>
+      <input type="password" id="ccPassword" name="ccPassword" minlength="2">
+
+    </fieldset>
+
+    <button type="submit">결제하기</button>
+
+  </form>
+
+</body>
+</html>
